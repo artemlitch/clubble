@@ -5,15 +5,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
+var clubRoutes = require('./routes/clubs');
 
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/maindb');
 var db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open', function() {
-        console.log("DB connected");
-      // we're connected!
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    console.log("DB connected");
+  // we're connected!
 });
 
 var app = express();
@@ -30,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/', clubRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
