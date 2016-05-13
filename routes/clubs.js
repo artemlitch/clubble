@@ -4,7 +4,7 @@ var clubModel = require('../models/club');
 var memberModel = require('../models/member');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Clubble' });
 });
 
 router.get('/:urlTitle', function(req, res, next) {
