@@ -6,25 +6,26 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var clubRoutes = require('./routes/clubs');
-
-
+var exphbs = require('express-handlebars');
+//setup the DB
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/maindb');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log("DB connected");
-  // we're connected!
 });
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+var hbs = exphbs.create({defaultLayout: 'main', extname: '.hbs'});
+app.engine('hbs', hbs.engine);
+app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
