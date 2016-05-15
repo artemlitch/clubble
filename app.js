@@ -6,10 +6,12 @@ let favicon = require('serve-favicon');
 let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
-let routes = require('./routes/main');
+let routes = require('./lib/routes/main');
 let exphbs = require('express-handlebars');
 let mongoose = require('mongoose');
-
+let passport = require('./lib/passport/passport');
+let session = require('express-session');
+let flash = require('connect-flash');
 //setup the DB
 mongoose.connect(process.env.MONGODB_URI);
 let db = mongoose.connection;
@@ -37,7 +39,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(session({ secret: process.env.SESSION_SECRET }));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(routes);
 
 // catch 404 and forward to error handler
