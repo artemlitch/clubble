@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-sm-8 col-sm-push-2">
+        <form class="form-horizontal" action="/create_club" method="post">
+            <div class="form-group {{#if errors.name}}has-error{{/if}}">
+                <div class="col-sm-offset-2">
+                    <h2 class="text-center">Create new Clubble</h2>
+                </div>
+                <label for="name" class="col-sm-2 control-label">
+                    Name
+                </label>
+                <div class="col-sm-10">
+                    <input class="form-control"
+                           type="text"
+                           id="name"
+                           name="name"
+                           placeholder="My Cool Club"
+                           value="{{ model.name }}">
+                    <span class="help-block {{#unless errors.name}}hidden{{/unless}}">
+                        {{ errors.name }}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group {{#if errors.email}}has-error{{/if}}">
+                <label for="email" class="col-sm-2 control-label">
+                    Email
+                </label>
+                <div class="col-sm-10">
+                    <input class="form-control"
+                           type="text"
+                           id="email"
+                           name="email"
+                           placeholder="mycoolclub@gmail.com"
+                           value="{{ model.email }}">
+                </div>
+            </div>
+            <div class="form-group {{#if errors.clubLink}}has-error{{/if}}">
+                <label for="clubLink" class="col-sm-2 control-label">
+                    Club Link
+                </label>
+                <div class="col-sm-10">
+                    <div class="input-group">
+                        <div class="input-group-addon">clubble.ca/</div>
+                        <input class="form-control"
+                               type="text"
+                               id="clubLink"
+                               name="clubLink"
+                               placeholder="my_cool_club"
+                               value="{{ model.clubLink }}">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description" class="col-sm-2 control-label">
+                    Description
+                </label>
+                <div class="col-sm-10">
+                    <textarea name="description" class="form-control">{{ model.description }}</textarea>
+                </div>
+            </div>
+            <div class="col-sm-offset-2">
+                <input class="btn btn-primary btn-block"
+                       type="submit"
+                       value="Create">
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $('#name').on('change input', function (e) {
+        var name = e.target.value;
+        name = name.toLowerCase();
+        name = name.replace(/[^\w\s]/g, '');
+        name = name.replace(/\s/g, '_');
+        $('#clubLink').val(name);
+    });
+</script>
