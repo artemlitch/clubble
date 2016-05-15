@@ -1,0 +1,21 @@
+{
+  "name": "clubble",
+  "homepage": "https://github.com/artemlitch/clubble",
+  "authors": [
+    "Mitchell Van Der Hoeff <mitchellvanderhoeff@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.3"
+  }
+}

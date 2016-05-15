@@ -5,5 +5,9 @@ A place to view and create Clubs for the UW campus!
 
 ````sh
 npm install
+cd public/
+bower install
+cd ..
 bin/www
 ````
+

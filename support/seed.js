@@ -38,19 +38,19 @@ function seedDefaultUser() {
 }
 
 function seedDefaultClub() {
-    let title='testClub', email='testclub@test.com', urlTitle='testclub'; 
+    let title='testClub', email='testclub@test.com', clubLink='testclub'; 
     connectDB();
     let Club = require('../models/club');
-    Club.findOne({'urlTitle':urlTitle}, function (err, club) {
+    Club.findOne({'clubLink':clubLink}, function (err, club) {
         if (!club) {
             console.log('seeding club');
-            let newClub = new Club({'title':title, 'email':email, 'urlTitle':urlTitle});
+            let newClub = new Club({'title':title, 'email':email, 'clubLink':clubLink});
             newClub.save(function () {
                 console.log('saved');
                 process.exit();
             });
         } else {
-            console.log('Club with urlTitle already exists');
+            console.log('Club with clubLink already exists');
             process.exit();
         }
     });
