@@ -1,16 +1,18 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+"use strict";
 
-var ClubSchema = new Schema({
+let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
+
+let ClubSchema = new Schema({
     title: String,
     twitter: String,
     youtube: String,
     email: String,
     facebook: String,
     urlTitle: String,
-    admins: [{ type: Schema.Types.ObjectId, ref: 'Member' }],
-    members: [{ type: Schema.Types.ObjectId, ref: 'Member' }],
+    admins: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    members: [{type: Schema.Types.ObjectId, ref: 'User'}],
 });
 
-var Club = mongoose.model('Club', ClubSchema);
+let Club = mongoose.model('Club', ClubSchema);
 module.exports = Club;
