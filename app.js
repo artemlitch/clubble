@@ -12,6 +12,9 @@ let mongoose = require('mongoose');
 let passport = require('./lib/passport/passport');
 let session = require('express-session');
 let flash = require('connect-flash');
+let Ddos = require('ddos');
+let ddos = new Ddos({'silentStart' : true});
+
 //setup the DB
 mongoose.connect(process.env.MONGODB_URI);
 let db = mongoose.connection;
@@ -44,6 +47,7 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(routes);
+app.use(ddos.express);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
