@@ -72,17 +72,18 @@ body {
     }
 }
 
-
 .page-content {
     padding-top: 50px;
 }
+
 .front-page-search {
-    max-width: 500px;
+    max-width: 800px;
     margin: auto;
     padding: 20px;
 }
 .front-page-search-input {
     text-align: center;
+    width: 80%;
     background: rgba(255, 255, 255, 0);
     font-size: x-large;
     border: none;
@@ -93,10 +94,6 @@ body {
     border-bottom-right-radius: 0px;
     padding-left: 50px;
     padding-right: 50px;
-    padding-bottom: -10px;
-}
-input:focus {
-    outline:none;
 }
 
 .main-page-well {
