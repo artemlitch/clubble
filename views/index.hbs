@@ -20,22 +20,32 @@
             <div class="col-sm-4 main-page-col">
                 <div class="well main-page-well">
                     <h4>New Clubs</h4>
-                    <p>{{description}}</p>
+                    {{#each new_clubs}}
+                        <div class="well club-well clickable">
+                            <a href="/{{this.clubLink}}"></a>
+                            <h5>{{this.name}}</h5>
+                        </div>
+                    {{/each}}
                 </div>
             </div>
             <div class="col-sm-4 main-page-col">
                 <div class="well main-page-well">
                     <h4>Popular Clubs</h4>
-                    <p>{{description}}</p>
+                    {{#each popular_clubs}}
+                        <div class="well club-well clickable">
+                            <a href="/{{this.clubLink}}"></a>
+                            <h5>{{this.name}}</h5>
+                        </div>
+                    {{/each}}
                 </div>
             </div>
             <div class="col-sm-4 main-page-col">
                 <div class="well main-page-well">
                     <h4>My Clubs</h4>
                     {{#each my_clubs}}
-                        <div class="well club-well">
+                        <div class="well club-well clickable">
+                            <a href="/{{this.clubLink}}"></a>
                             <h5>{{this.name}}</h5>
-                            <a href="/{{this.clubLink}}">Page</a>
                         </div>
                     {{/each}}
                 </div>
