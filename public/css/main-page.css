@@ -1,0 +1,125 @@
+body {
+    background: url(../img/background.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+      -moz-background-size: cover;
+        -o-background-size: cover;
+          background-size: cover;
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        top: 90px;
+    }
+    to {
+        opacity: 1;
+        top: 0px;
+    }
+}
+.intro-header {
+    opacity: 1;
+    position: relative;
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    text-align: center;
+    color: #f8f8f8;
+}
+
+.intro-message {
+    position: relative;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    animation-name: fade-in;
+    animation-duration: 1s;
+}
+
+.intro-message > h1 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-size: 5em;
+}
+
+.intro-divider {
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.intro-message > h3 {
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+}
+
+@media(max-width:767px) {
+    .intro-message {
+        padding-bottom: 15%;
+    }
+
+    .intro-message > h1 {
+        font-size: 3em;
+    }
+
+    ul.intro-social-buttons > li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    ul.intro-social-buttons > li:last-child {
+        margin-bottom: 0;
+    }
+
+    .intro-divider {
+        width: 100%;
+    }
+}
+
+
+.page-content {
+    padding-top: 50px;
+}
+.front-page-search {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+.front-page-search-input {
+    text-align: center;
+    background: rgba(255, 255, 255, 0);
+    font-size: x-large;
+    border: none;
+    border-bottom: white;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: -10px;
+}
+input:focus {
+    outline:none;
+}
+
+.main-page-well {
+    background: rgba(255, 255, 255, 0.17);
+    height: 59vh;
+    overflow-y: auto;
+}
+::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.51);
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: rgba(255, 255, 255, 0.51);
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: rgba(255, 255, 255, 0.51);
+}
+
+:-ms-input-placeholder {  
+    color: rgba(255, 255, 255, 0.51);
+}
+
+.club-well {
+    color: black;
+
+}
