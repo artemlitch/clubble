@@ -81,18 +81,14 @@ body {
     padding: 20px;
 }
 .front-page-search-input {
-    text-align: center;
-    width: 80%;
     background: rgba(255, 255, 255, 0);
-    font-size: x-large;
+    width: 500px;
     border: none;
     border-bottom: white;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    padding-left: 50px;
-    padding-right: 50px;
 }
 
 .main-page-well {
@@ -137,4 +133,16 @@ div.clickable a {
     background-color:white; /*workaround to make clickable in IE */
     opacity: 0; /*workaround to make clickable in IE */
     filter: alpha(opacity=1); /*workaround to make clickable in IE */
+}
+
+.tt-hint {
+    color: #bbbbbb;
+}
+
+.tt-highlight {
+    border-bottom: 2px solid white;
+}
+
+.tt-cursor {
+    border: 1px black solid;
 }
