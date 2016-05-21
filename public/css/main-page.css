@@ -19,7 +19,6 @@ body {
 .intro-header {
     opacity: 1;
     position: relative;
-    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
     text-align: center;
     color: #f8f8f8;
 }
@@ -98,7 +97,7 @@ body {
 
 .main-page-well {
     background: rgba(255, 255, 255, 0.17);
-    height: 59vh;
+    height: 73vh;
     overflow-y: auto;
 }
 ::-webkit-input-placeholder {
