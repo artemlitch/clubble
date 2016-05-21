@@ -75,6 +75,7 @@
 </script>
 
 <script>
+    var searchTimeout;
     $('#clubSearchBar')
         .typeahead({
             minLength: 1,
@@ -84,10 +85,15 @@
             name: 'club_search',
             async: true,
             source: function (query, _, done) {
-                $.getJSON('/api/clubs/search', {q: query}, function (data) {
-                    var results = data.results;
-                    done(results);
-                });
+                if (searchTimeout) {
+                    clearTimeout(searchTimeout);
+                }
+                searchTimeout = setTimeout(function () {
+                    $.getJSON('/api/clubs/search', {q: query}, function (data) {
+                        var results = data.results;
+                        done(results);
+                    });
+                }, 200);
             },
             display: function (club) {
                 return club.name;
