@@ -5,13 +5,17 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-12">
-                <div class="intro-message">
+            <div class="col-s m-12">
+                <div class="row intro-message">
                     <div class="front-page-search">
-                      <input type="text" class="front-page-search-input" placeholder="Search for: {{search_club}}" autofocus />
+                        <input type="text"
+                               id="clubSearchBar"
+                               class="col-sm-12 input-lg front-page-search-input"
+                               placeholder="Search for: {{search_club}}"
+                               autofocus/>
                     </div>
-                    <ul class="list-inline intro-social-buttons">
-                    </ul>
+                    <div id="clubSearchResults" class="list-unstyled">
+                    </div>
                 </div>
             </div>
         </div>
@@ -22,7 +26,7 @@
                     {{#each new_clubs}}
                         <div class="well club-well clickable">
                             <a href="/{{this.clubLink}}"></a>
-                            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                            <img class="img-responsive" src="/img/placeholder.png" alt="">
                             <h5>{{this.name}}</h5>
                         </div>
                     {{/each}}
@@ -34,7 +38,7 @@
                     {{#each popular_clubs}}
                         <div class="well club-well clickable">
                             <a href="/{{this.clubLink}}"></a>
-                            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                            <img class="img-responsive" src="/img/placeholder.png" alt="">
                             <h5>{{this.name}}</h5>
                         </div>
                     {{/each}}
@@ -46,7 +50,7 @@
                     {{#each my_clubs}}
                         <div class="well club-well clickable">
                             <a href="/{{this.clubLink}}"></a>
-                            <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                            <img class="img-responsive" src="/img/placeholder.png" alt="">
                             <h5>{{this.name}}</h5>
                         </div>
                     {{/each}}
@@ -57,3 +61,42 @@
     <!-- /.container -->
 
 </div>
+
+<script id="template-clubSearchResult" type="text/x-handlebars-template">
+    <div class="row" style="background-color: white; width: 500px; height: 70px; border-radius: 15px">
+        <div class="col-sm-4">
+            <h4>
+                <a href="/\{{clubLink}}" style="color: black;">
+                    \{{ name }}
+                </a>
+            </h4>
+        </div>
+    </div>
+</script>
+
+<script>
+    $('#clubSearchBar')
+        .typeahead({
+            minLength: 1,
+            hint: true,
+            highlight: true,
+        }, {
+            name: 'club_search',
+            async: true,
+            source: function (query, _, done) {
+                $.getJSON('/api/clubs/search', {q: query}, function (data) {
+                    var results = data.results;
+                    done(results);
+                });
+            },
+            display: function (club) {
+                return club.name;
+            },
+            templates: {
+                suggestion: Handlebars.compile($('#template-clubSearchResult').html()),
+            }
+        })
+        .bind('typeahead:select', function ($el, club) {
+            window.location.pathname = '/' + club.clubLink;
+        });
+</script>

@@ -2,10 +2,10 @@
 require('localenv');
 var program = require('commander');
 program
-  .version('0.0.1')
-  .option('-c, --club', 'Seed Club')
-  .option('-u, --user', 'Seed User')
-  .parse(process.argv);
+    .version('0.0.1')
+    .option('-c, --club', 'Seed Club')
+    .option('-u, --user', 'Seed User')
+    .parse(process.argv);
 
 function connectDB() {
     let mongoose = require('mongoose');
@@ -13,19 +13,19 @@ function connectDB() {
 
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open', function() {
+    db.once('open', function () {
         console.log("DB connected");
     });
 }
 
 
 function seedDefaultUser() {
-    let email='test@test.com', password='111', name={'first':'Artem', 'last':'Test'}; 
+    let email = 'test@test.com', password = '111', name = {'first': 'Artem', 'last': 'Test'};
     connectDB();
-    let User = require('../models/user');
-    User.findOne({'email':email}, function (err, user) {
+    let User = require('../lib/models/user');
+    User.findOne({'email': email}, function (err, user) {
         if (!user) {
-            let newUser = new User({'email':email, 'password':password, 'name':name});
+            let newUser = new User({'email': email, 'password': password, 'name': name});
             newUser.save(function () {
                 console.log('saved');
                 process.exit();
@@ -38,13 +38,13 @@ function seedDefaultUser() {
 }
 
 function seedDefaultClub() {
-    let title='testClub', email='testclub@test.com', clubLink='testclub'; 
+    let title = 'testClub', email = 'testclub@test.com', clubLink = 'testclub';
     connectDB();
-    let Club = require('../models/club');
-    Club.findOne({'clubLink':clubLink}, function (err, club) {
+    let Club = require('../lib/models/club');
+    Club.findOne({'clubLink': clubLink}, function (err, club) {
         if (!club) {
             console.log('seeding club');
-            let newClub = new Club({'title':title, 'email':email, 'clubLink':clubLink});
+            let newClub = new Club({'title': title, 'email': email, 'clubLink': clubLink});
             newClub.save(function () {
                 console.log('saved');
                 process.exit();
