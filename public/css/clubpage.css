@@ -20,3 +20,18 @@
 .club-about-well {
     padding-top: 5px;
 }
+
+.badge1 {
+   position:relative;
+}
+.badge1:after {
+    content: "editable";
+    position: relative;
+    right: -10px;
+    font-size: 12px;
+    color: white;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 13px;
+}

@@ -1,4 +1,3 @@
-
 <link href="css/clubpage.css" rel="stylesheet">
 <div class="container club-body ">
     <div class="intro-header">
@@ -20,14 +19,22 @@
         <div class="well">
             <h4>Contact Info</h4>
             <ul class="list-unstyled">
-                <li><a href="#">Category Name</a>
+                {{#if email}}
+                <li>email: <a href='mailto:{{email}}'>{{email}}</a>
                 </li>
-                <li><a href="#">Category Name</a>
+                {{/if}}
+                {{#if facebook}}
+                <li><a href={{facebook}}>Facebook Link</a>
                 </li>
-                <li><a href="#">Category Name</a>
+                {{/if}}
+                {{#if twitter}}
+                <li><a href={{twitter}}>Twitter Link</a>
                 </li>
-                <li><a href="#">Category Name</a>
+                {{/if}}
+                {{#if youtube}}
+                <li><a href={{youtube}}>Youtube Link</a>
                 </li>
+                {{/if}}
             </ul>
         </div>
     </div>
@@ -35,6 +42,5 @@
         <div class="well">
             <h4>Upcoming Events</h4>
         </div>
-    <div>
+    </div>
 </div>
-    <!-- /.container -->
