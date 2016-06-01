@@ -63,13 +63,14 @@
 </div>
 
 <script id="template-clubSearchResult" type="text/x-handlebars-template">
-    <div class="row" style="background-color: white; width: 500px; height: 70px; border-radius: 15px">
-        <div class="col-sm-4">
+    <div class="searchRow">
+        <div class="col-sm-12">
             <h4>
                 <a href="/\{{clubLink}}" style="color: black;">
                     \{{ name }}
                 </a>
             </h4>
+            <p>\{{ description }}</p>
         </div>
     </div>
 </script>

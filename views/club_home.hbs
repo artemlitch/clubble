@@ -44,3 +44,13 @@
         </div>
     </div>
 </div>
+{{# if editable}}
+<div class="container">
+    <button class="btn btn-primary" type="button" onclick="edit()">Edit</button>
+</div>
+<script>
+    function edit() {
+        window.location.href = window.location.pathname+"?"+$.param({'edit':'true'});
+    }
+</script>
+{{/if}}

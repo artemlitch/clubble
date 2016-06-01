@@ -146,3 +146,30 @@ div.clickable a {
 .tt-cursor {
     border: 1px black solid;
 }
+
+/* search stuff */
+.searchRow {
+    color: black;
+    background-color: white; 
+    width: 500px;
+    height: 70px;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+.searchRow:hover {
+    border: none;
+    background-color: #E9EBEE;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    cursor:pointer;
+}
+
+.tt-cursor {
+    border: none;
+    background-color: #E9EBEE;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}

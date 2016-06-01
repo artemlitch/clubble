@@ -40,19 +40,15 @@
     <div class="col-sm-6 club-about-well">
         <div class="well">
             <h4>Upcoming Events</h4>
-                {{#if editable}}
                 <div class="container">
                     <button class="btn btn-primary" type="button">Add Event</button>
                 </div>
-                {{/if}}
         </div>
     </div>
 </div>
-{{#if editable}}
 <div class="container">
     <button class="btn btn-primary" type="button" onclick="save()">Save</button>
 </div>
-{{/if}}
 <script>
     function save() {
         var context = {
@@ -64,9 +60,11 @@
             twitter: $('#twitter').val(),
             youtube: $('#youtube').val(),
         }
-        console.log(context);
-        console.log("call save");
-        $.post("#", context);
+        $.post('#', context, function(data, textStatus, jqXHR) {
+            if (typeof data.redirect == 'string') {
+                window.location = data.redirect;
+            }
+        });
     }
 </script>
 
