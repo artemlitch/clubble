@@ -42,7 +42,7 @@
                         {{#if user.email}}
                             <a href="/logout">Logout</a>
                         {{else}}
-                            <a href="/login">Login</a>
+                            <a id='loginBtn')>Login</a>
                         {{/if}}
                     </li>
                 </ul>
@@ -58,3 +58,18 @@
 
 </body>
 </html>
+<script type="text/javascript">
+
+var baseLink = '/login';
+
+$(document).ready(function () 
+{
+    $('#loginBtn').mouseenter(function () 
+    {
+        var link = baseLink + "?next=" + window.location.pathname;
+        $("#loginBtn").attr("href", link);
+    });
+
+});
+
+</script>
