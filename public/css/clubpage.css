@@ -35,3 +35,22 @@
     text-align: center;
     line-height: 13px;
 }
+
+.form-control[readonly]
+{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    box-shadow: none;
+    resize: none;
+}
+.input-group {
+    width: 100%;
+}
+.contact-group-addon {
+    width: 100px;
+    border: none;
+    box-shadow: none;
+    background: none;
+    text-align: left;
+}
+
