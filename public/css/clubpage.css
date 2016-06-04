@@ -20,9 +20,8 @@
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
     font-size: 5em;
     color: white;
-    background: rgba(0,0,0,0.30);
     border: none;
-    background: url('../img/gradient.png') bottom left repeat-x;
+    background: linear-gradient(to bottom, rgba(0, 183, 234, 0) 0%,rgb(35, 35, 35) 100%);
 }
 
 .banner-photo {
