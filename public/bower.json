@@ -19,6 +19,7 @@
     "jquery": "^2.2.3",
     "handlebars": "^4.0.5",
     "typeahead.js": "^0.11.1",
-    "font-awesome": "^4.6.3"
+    "font-awesome": "^4.6.3",
+    "autosize": "^3.0.15"
   }
 }
