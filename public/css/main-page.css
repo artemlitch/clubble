@@ -6,6 +6,7 @@ body {
           background-size: cover;
     background-attachment:fixed;
 }
+
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -16,6 +17,7 @@ body {
         top: 0px;
     }
 }
+
 .intro-header {
     opacity: 1;
     position: relative;
@@ -172,4 +174,9 @@ div.clickable a {
     border-bottom-color: black;
     border-bottom-width: 1px;
     border-bottom-style: solid;
+}
+
+.img-responsive {
+    margin: auto;
+    max-height: 100px;
 }

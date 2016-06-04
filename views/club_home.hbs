@@ -1,82 +1,115 @@
 <link href="css/clubpage.css" rel="stylesheet">
 <div class="container club-body ">
-    <div class="intro-header">
-        <div class="container">
-           <div class="row">
-                <div class="col-lg-12">
-                    <div class="club-header">
-                        <h1 id='name'>{{name}}</h1>
-                        {{#if editable}}
-                        <p class='info'>Edit name</p>
-                        {{/if}}
-                        {{#if admin}}
-                        {{#unless editable}}
-                        <button class="btn btn-primary" type="button" onclick="edit()">Edit</button>
-                        {{else}}
-                        <button class="btn btn-primary" type="button" onclick="save()">Save</button>
-                        {{/unless}}
-                        {{/if}} 
+    <form method="post" enctype="multipart/form-data">
+        <div class="intro-header">
+            <div class="container">
+               <div class="row">
+                    <div class="col-lg-12">
+                        <div class="club-header">
+                            <div class="adminBtnGroup">
+                                {{#if editable}}
+                                <label class="btn btn-default btn-file">
+                                    Choose Photo <input type="file" name='banner' style="display: none;" onchange="previewFile()">
+                                </label>
+                                <script>
+                                    function previewFile(){
+                                        var preview = $('#bannerPhoto');
+                                        var file    = document.querySelector('input[type=file]').files[0];
+                                        var reader  = new FileReader();
+                                        reader.onloadend = function () {
+                                            preview.attr("src",reader.result);
+                                        }
+                                        if (file) {
+                                            reader.readAsDataURL(file); //reads the data as a URL
+                                        } else {
+                                            preview.attr("src","{{bannerURL}}");
+                                        }
+                                    }
+                                    previewFile();  //calls the function named previewFile()
+                                </script>
+                                {{/if}}
+                                {{#if admin}}
+                                {{#unless editable}}
+                                <button class="btn btn-primary" type="button" onclick="edit()">Edit</button>
+                                {{else}}
+                                <button class="btn btn-primary" type="submit">Save</button>
+                                {{/unless}}
+                                {{/if}} 
+                            </div>
+                            <div class="image-holder">
+                                <img src={{bannerURL}} class='banner-photo' id='bannerPhoto' alt="">
+                            </div>
+                            <div class="club-name-holder" id='nameHolder'>
+                                <textarea readonly name='name' rows=1 maxlength=50 type='text' class='col-sm-12 clubTitle' id='name'>{{name}}</textarea>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            {{#if editable}}
-            <div class="input-group">
-                <div class="input-group-addon">clubble.ca/</div>
-                    <input class="form-control"
-                           type="text"
-                           id="clubLink"
-                           name="clubLink"
-                           value="{{ clubLink }}">
-            </div>
-            {{/if}}
-        </div>
-    </div>
-    <div class="col-sm-6 club-about-well">
-        <div class="well">
-            <h4>About {{name}}</h4>
-            <textarea readonly id=description name="description" class="form-control">{{ description }}</textarea>
-        </div>
-        <div class="well">
-            <h4>Contact Info</h4>
-            <ul class="list-unstyled">
-                <li>
+                {{#if editable}}
                 <div class="input-group">
-                    <div class="input-group-addon contact-group-addon">Email</div>
-                    <input readonly class="form-control" type='text' id=email value={{email}}>
+                    <div class="input-group-addon">clubble.ca/</div>
+                        <input class="form-control"
+                               type="text"
+                               id="clubLink"
+                               name="clubLink"
+                               value="{{ clubLink }}">
                 </div>
-                </li>
-                <li>
-                <div class="input-group">
-                    <a {{#if facebook}}href={{facebook}}{{/if}} class="input-group-addon contact-group-addon">Facebook</a>
-                    <input readonly class="form-control" type='text' id=facebook value={{facebook}}>
-                </div>
-                </li>
-                <li>
-                <div class="input-group">
-                    <a {{#if twitter}}href={{twitter}}{{/if}} class="input-group-addon contact-group-addon">Twitter</a>
-                    <input readonly class="form-control" type='text' id=twitter value={{twitter}}>
-                </div>
-                <li>
-                <div class="input-group">
-                    <a {{#if youtube}}href={{youtube}}{{/if}} class="input-group-addon contact-group-addon">Youtube</a>
-                    <input readonly class="form-control" type='text' id=youtube value={{youtube}}>
-                </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-sm-6 club-about-well">
-        <div class="well">
-            <h4>Upcoming Events</h4>
-            <div id='club-events'>
-            {{#if admin}}
-            {{#unless facebook}}
-                <p class='info'>Link to your facebook group page to see your upcoming events automatically</p>
-            {{/unless}}
-            {{/if}}
+                {{/if}}
             </div>
         </div>
-    </div>
+        <div class="col-sm-6 club-about-well">
+            <div class="well">
+                <h4>About {{name}}</h4>
+                <textarea readonly id=description name="description" class="form-control">{{ description }}</textarea>
+            </div>
+            <div class="well">
+                <h4>Contact Info</h4>
+                <ul class="list-unstyled">
+                    <li>
+                    <div class="input-group">
+                        <div class="input-group-addon contact-group-addon">Email</div>
+                        <input readonly class="form-control" type='text' name='email' id=email value={{email}}>
+                    </div>
+                    </li>
+                    <li>
+                    <div class="input-group">
+                        <a {{#if website}}href={{website}}{{/if}} class="input-group-addon contact-group-addon">Website</a>
+                        <input readonly class="form-control" type='text' name='website' id=website value={{website}}>
+                    </div>
+                    </li>
+                    <li>
+                    <div class="input-group">
+                        <a {{#if facebook}}href={{facebook}}{{/if}} class="input-group-addon contact-group-addon">Facebook</a>
+                        <input readonly class="form-control" type='text' name='facebook' id=facebook value={{facebook}}>
+                    </div>
+                    </li>
+                    <li>
+                    <div class="input-group">
+                        <a {{#if twitter}}href={{twitter}}{{/if}} class="input-group-addon contact-group-addon">Twitter</a>
+                        <input readonly class="form-control" type='text' name='twitter' id=twitter value={{twitter}}>
+                    </div>
+                    <li>
+                    <div class="input-group">
+                        <a {{#if youtube}}href={{youtube}}{{/if}} class="input-group-addon contact-group-addon">Youtube</a>
+                        <input readonly class="form-control" type='text' name='youtube' id=youtube value={{youtube}}>
+                    </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-6 club-about-well">
+            <div class="well">
+                <h4>Upcoming Events</h4>
+                <div id='club-events'>
+                {{#if admin}}
+                {{#unless facebook}}
+                    <p class='info'>Link to your facebook group page to see your upcoming events automatically</p>
+                {{/unless}}
+                {{/if}}
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 
 <script id="fbevent-template" type="text/x-handlebars-template">
@@ -90,7 +123,22 @@
 </script>
 
 <script type="text/javascript">
+    function nameAdjust() {
+        $('#name').attr('rows', 1);
+        var height = document.getElementById("name").scrollHeight;
+        console.log(height);
+        $('#name').attr('rows', (height-4)/100);
+        $('#nameHolder').css('padding-top', 300-(height-4));
+    }
     $(window).ready(function() {
+        nameAdjust();
+        $(window).resize(
+            nameAdjust
+        );
+        $('#name').keyup(
+            nameAdjust
+        );
+
         function textAreaAdjust(o) {
             o.style.height = "1px";
             o.style.height = (25+o.scrollHeight)+"px";
@@ -122,31 +170,15 @@
 
 {{#if editable}}
 <script>
-    $('#name').prop('contenteditable', true);
+    $('#name').prop('readonly', false);
     $('#clubLink').prop('readonly', false);
     $('#description').prop('readonly', false);
     $('#email').prop('readonly', false);
     $('#facebook').prop('readonly', false);
     $('#twitter').prop('readonly', false);
     $('#youtube').prop('readonly', false);
+    $('#website').prop('readonly', false);
 </script>        
-<script>
-    function save() {
-        var context = {
-            name: $('#name').text(),
-            clubLink: $('#clubLink').val(),
-            description: $('#description').val(),
-            email: $('#email').val(),
-            facebook: $('#facebook').val(),
-            twitter: $('#twitter').val(),
-            youtube: $('#youtube').val(),
-        }
-        $.post('#', context, function(data, textStatus, jqXHR) {
-            if (typeof data.redirect == 'string') {
-                window.location = data.redirect;
-            }
-        });
-    }
-</script>
 {{/if}}
-
+<script>
+</script>

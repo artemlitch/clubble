@@ -3,11 +3,31 @@
 }
 .club-header {
     position: relative;
+    overflow: hidden;
+    height: 300px;
 }
-.club-header > h1 {
+.image-holder {
+    position: absolute;
+    
+}
+.club-name-holder {
+    z-index: 1;
+    position: relative;
+}
+
+.clubTitle {
     margin: 0;
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
     font-size: 5em;
+    color: white;
+    background: rgba(0,0,0,0.30);
+    border: none;
+    background: url('../img/gradient.png') bottom left repeat-x;
+}
+
+.banner-photo {
+    padding: 0px;
+    width: 940px;
 }
 
 .club-body {
@@ -43,6 +63,7 @@
     box-shadow: none;
     resize: none;
 }
+
 .input-group {
     width: 100%;
 }
@@ -54,3 +75,15 @@
     text-align: left;
 }
 
+.adminBtnGroup {
+    position: fixed;
+    z-index: 2;
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 970px;
+    }
+}
+#name {
+    resize:none;
+}
