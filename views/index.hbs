@@ -5,7 +5,7 @@
 
         <div class="row">
             <div class="col-s m-12">
-                <div class="row intro-message">
+                <div class="intro-message">
                     <div class="front-page-search">
                         <input type="text"
                                id="clubSearchBar"
@@ -20,8 +20,8 @@
         </div>
         <div class="row">
             <div class="col-sm-4 main-page-col">
+                <h4>New Clubs</h4>
                 <div class="well main-page-well">
-                    <h4>New Clubs</h4>
                     {{#each new_clubs}}
                         <div class="well club-well clickable">
                             <a href="/{{this.clubLink}}"></a>
@@ -32,8 +32,8 @@
                 </div>
             </div>
             <div class="col-sm-4 main-page-col">
+                <h4>Popular Clubs</h4>
                 <div class="well main-page-well">
-                    <h4>Popular Clubs</h4>
                     {{#each popular_clubs}}
                         <div class="well club-well clickable">
                             <a href="/{{this.clubLink}}"></a>
@@ -44,9 +44,9 @@
                 </div>
             </div>
             <div class="col-sm-4 main-page-col">
+                <h4>My Clubs</h4>
+                <a class="create-btn btn btn-primary" type="button" href="create_club"><span>Create New Club</span></a>
                 <div class="well main-page-well">
-                    <h4>My Clubs</h4>
-                    <a class="btn btn-primary" type="button" href="create_club">Create New Club</a>
                     {{#each my_clubs}}
                         <div class="well club-well clickable">
                             <a href="/{{this.clubLink}}"></a>

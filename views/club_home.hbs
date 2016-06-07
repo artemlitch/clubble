@@ -111,13 +111,17 @@
         </div>
     </form>
 </div>
-
 <script id="fbevent-template" type="text/x-handlebars-template">
     <div class='well'>
+        <div class='eventDateHolder'>
+            <span class='eventMonth'>\{{start_month}}</span>
+            <br>
+            <span class='eventDate'>\{{start_date}}</span>
+            <br>
+            <span class='eventTime'>\{{start_time}}</span>
+        </div>
         <h4>\{{name}}</h4>
         <p>\{{description}}</p>
-        <p>Start Date: \{{start_time}}</p>
-        <p>End Date: \{{end_time}}</p>
         <a href='https://www.facebook.com/events/\{{id}}'>Facebook Link </a>
     </div>
 </script>
@@ -126,7 +130,6 @@
     function nameAdjust() {
         $('#name').attr('rows', 1);
         var height = document.getElementById("name").scrollHeight;
-        console.log(height);
         $('#name').attr('rows', (height-4)/100);
         $('#nameHolder').css('padding-top', 300-(height-4));
     }

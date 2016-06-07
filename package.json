@@ -19,6 +19,7 @@
     "fbgraph": "^1.2.0",
     "jade": "~1.11.0",
     "localenv": "^0.2.2",
+    "moment": "^2.13.0",
     "mongodb": "^2.1.18",
     "mongoose": "^4.4.16",
     "morgan": "~1.6.1",

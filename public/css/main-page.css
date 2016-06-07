@@ -28,7 +28,6 @@ body {
 .intro-message {
     position: relative;
     padding-top: 2%;
-    padding-bottom: 2%;
     animation-name: fade-in;
     animation-duration: 1s;
 }
@@ -47,30 +46,6 @@ body {
 
 .intro-message > h3 {
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-}
-
-@media(max-width:767px) {
-    .intro-message {
-        padding-bottom: 15%;
-    }
-
-    .intro-message > h1 {
-        font-size: 3em;
-    }
-
-    ul.intro-social-buttons > li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
-
-    ul.intro-social-buttons > li:last-child {
-        margin-bottom: 0;
-    }
-
-    .intro-divider {
-        width: 100%;
-    }
 }
 
 .page-content {
@@ -152,7 +127,7 @@ div.clickable a {
 /* search stuff */
 .searchRow {
     color: black;
-    background-color: white; 
+    background-color: #f5f8fa;
     width: 500px;
     height: 70px;
     border-bottom-color: black;
@@ -179,4 +154,53 @@ div.clickable a {
 .img-responsive {
     margin: auto;
     max-height: 100px;
+}
+.create-btn {
+    position: absolute;
+    top: -4px;
+    right: 4px;
+    width: 60px;
+    white-space: normal;
+    font-size: x-small;
+}
+/* CSS FOR MOBILE */
+@media (max-width: 767px) { 
+    .intro-message {
+        padding-bottom: 4%;
+    }
+
+    .intro-message > h1 {
+        font-size: 3em;
+    }
+
+    ul.intro-social-buttons > li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    ul.intro-social-buttons > li:last-child {
+        margin-bottom: 0;
+    }
+
+    .intro-divider {
+        width: 100%;
+    }
+    .main-page-well {
+        display: flex;
+        height: 230px;
+    }
+    .club-well {
+        margin: 10px;
+        min-width: 172px;
+    }
+    .front-page-search-input {
+        width: 76vw;
+    }
+    .tt-dataset {
+        background-color: #f5f8fa;
+    }
+    .searchRow {
+        width: 76vw;
+    }
 }

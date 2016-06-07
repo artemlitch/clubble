@@ -14,16 +14,16 @@
     z-index: 1;
     position: relative;
 }
-
 .clubTitle {
     margin: 0;
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
     font-size: 5em;
     color: white;
     border: none;
-    background: linear-gradient(to bottom, rgba(0, 183, 234, 0) 0%,rgb(35, 35, 35) 100%);
+    background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,rgb(35, 35, 35) 100%);
+    background: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,rgb(35, 35, 35) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,rgb(35, 35, 35) 100%);
 }
-
 .banner-photo {
     padding: 0px;
     width: 940px;
@@ -38,21 +38,6 @@
 
 .club-about-well {
     padding-top: 5px;
-}
-
-.badge1 {
-   position:relative;
-}
-.badge1:after {
-    content: "editable";
-    position: relative;
-    right: -10px;
-    font-size: 12px;
-    color: white;
-    width: 18px;
-    height: 18px;
-    text-align: center;
-    line-height: 13px;
 }
 
 .form-control[readonly]
@@ -86,3 +71,17 @@
 #name {
     resize:none;
 }
+.eventDateHolder {
+    width: 75px;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: thin;
+    text-align: center;
+    padding: 5px;
+    position: relative;
+    margin-bottom: -87px;
+    right: -91%;
+    top: -54px;
+    background: white;
+}
+
