@@ -46,7 +46,7 @@
                                 <img src={{bannerURL}} class='banner-photo' id='bannerPhoto' alt="">
                             </div>
                             <div class="club-name-holder" id='nameHolder'>
-                                <textarea readonly name='name' rows=1 maxlength=55 type='text' class='col-sm-12 clubTitle' id='name'>{{name}}</textarea>
+                                <textarea disabled name='name' rows=1 maxlength=55 type='text' class='col-sm-12 clubTitle' id='name'>{{name}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
         <div class="col-sm-6 club-about-well">
             <div class="well">
                 <h4>About {{name}}</h4>
-                <textarea readonly id=description name="description" class="form-control">{{ description }}</textarea>
+                <textarea disabled id=description name="description" class="form-control">{{ description }}</textarea>
             </div>
             <div class="well">
                 <h4>Contact Info</h4>
@@ -77,30 +77,30 @@
                     <li>
                     <div class="input-group">
                         <div class="input-group-addon contact-group-addon">Email</div>
-                        <input readonly class="form-control" type='text' name='email' id=email value={{email}}>
+                        <input disabled class="form-control" type='text' name='email' id=email value={{email}}>
                     </div>
                     </li>
                     <li>
                     <div class="input-group">
                         <a {{#if website}}href={{website}}{{/if}} class="input-group-addon contact-group-addon">Website</a>
-                        <input readonly class="form-control" type='text' name='website' id=website value={{website}}>
+                        <input disabled class="form-control" type='text' name='website' id=website value={{website}}>
                     </div>
                     </li>
                     <li>
                     <div class="input-group">
                         <a {{#if facebook}}href={{facebook}}{{/if}} class="input-group-addon contact-group-addon">Facebook</a>
-                        <input readonly class="form-control" type='text' name='facebook' id=facebook value={{facebook}}>
+                        <input disabled class="form-control" type='text' name='facebook' id=facebook value={{facebook}}>
                     </div>
                     </li>
                     <li>
                     <div class="input-group">
                         <a {{#if twitter}}href={{twitter}}{{/if}} class="input-group-addon contact-group-addon">Twitter</a>
-                        <input readonly class="form-control" type='text' name='twitter' id=twitter value={{twitter}}>
+                        <input disabled class="form-control" type='text' name='twitter' id=twitter value={{twitter}}>
                     </div>
                     <li>
                     <div class="input-group">
                         <a {{#if youtube}}href={{youtube}}{{/if}} class="input-group-addon contact-group-addon">Youtube</a>
-                        <input readonly class="form-control" type='text' name='youtube' id=youtube value={{youtube}}>
+                        <input disabled class="form-control" type='text' name='youtube' id=youtube value={{youtube}}>
                     </div>
                     </li>
                 </ul>
@@ -190,14 +190,14 @@
 </script>
 {{#if editable}}
 <script>
-    $('#name').prop('readonly', false);
-    $('#clubLink').prop('readonly', false);
-    $('#description').prop('readonly', false);
-    $('#email').prop('readonly', false);
-    $('#facebook').prop('readonly', false);
-    $('#twitter').prop('readonly', false);
-    $('#youtube').prop('readonly', false);
-    $('#website').prop('readonly', false);
+    $('#name').prop('disabled', false);
+    $('#clubLink').prop('disabled', false);
+    $('#description').prop('disabled', false);
+    $('#email').prop('disabled', false);
+    $('#facebook').prop('disabled', false);
+    $('#twitter').prop('disabled', false);
+    $('#youtube').prop('disabled', false);
+    $('#website').prop('disabled', false);
 </script>        
 {{/if}}
 <script>
