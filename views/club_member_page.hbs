@@ -1,0 +1,9 @@
+<div class='container'>
+<h5>{{name}} Members</h5>
+{{#each members}}
+    <div class="well">
+        <h5>email: {{this.email}}</h5>
+        <h5>name: {{this.name.first}} {{this.name.last}}</h5>
+    </div>
+{{/each}}
+</div>

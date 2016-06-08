@@ -1,5 +1,5 @@
 <link href="css/clubpage.css" rel="stylesheet">
-<div class="container club-body ">
+<div class="container club-body">
     <form method="post" enctype="multipart/form-data">
         <div class="intro-header">
             <div class="container">
@@ -34,7 +34,11 @@
                                 {{else}}
                                 <button class="btn btn-primary" type="submit">Save</button>
                                 {{/unless}}
-                                {{/if}} 
+                                {{else}}
+                                {{#unless member}}
+                                <button class="btn btn-primary" type="button" onclick="join()">Join Club</button>
+                                {{/unless}}
+                                {{/if}}
                             </div>
                             <div class="image-holder">
                                 <img src={{bannerURL}} class='banner-photo' id='bannerPhoto' alt="">
@@ -54,6 +58,9 @@
                                name="clubLink"
                                value="{{ clubLink }}">
                 </div>
+                {{/if}}
+                {{#if admin}}
+                    <a class="btn btn-primary" type="button" href="{{clubLink}}/members">Members</a>
                 {{/if}}
             </div>
         </div>
@@ -170,7 +177,17 @@
 </script>
 {{/unless}}
 {{/if}}
-
+{{#unless member}}
+<script>
+    function join() {
+        $.post(window.location.pathname+"/join", {next: window.location.pathname}, function(data, status) {
+            if (typeof data.redirect == 'string') {
+                window.location = data.redirect;
+            }
+        });
+    }
+</script>
+{{/unless}}
 {{#if editable}}
 <script>
     $('#name').prop('readonly', false);
