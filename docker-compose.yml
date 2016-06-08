@@ -3,6 +3,8 @@ web:
   environment:
     - PORT=80
     - MONGODB_URI=mongodb://mongo/clubble
+  volumes:
+    - ~/opt/clubble/uploads:/app/uploads
   links:
     - mongo
   ports:
