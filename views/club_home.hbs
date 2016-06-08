@@ -29,15 +29,17 @@
                                 </script>
                                 {{/if}}
                                 {{#if admin}}
-                                {{#unless editable}}
-                                <button class="btn btn-primary" type="button" onclick="edit()">Edit</button>
+                                    {{#unless editable}}
+                                        <button class="btn btn-primary" type="button" onclick="edit()">Edit</button>
+                                    {{else}}
+                                        <button class="btn btn-primary" type="submit">Save</button>
+                                    {{/unless}}
                                 {{else}}
-                                <button class="btn btn-primary" type="submit">Save</button>
-                                {{/unless}}
-                                {{else}}
-                                {{#unless member}}
-                                <button class="btn btn-primary" type="button" onclick="join()">Join Club</button>
-                                {{/unless}}
+                                    {{#if member}}
+                                        <button class="btn btn-primary" type="button" onclick="join()">Joined</button>
+                                    {{else}}
+                                        <button class="btn btn-primary" type="button" onclick="join()">Join Club</button>
+                                    {{/if}}
                                 {{/if}}
                             </div>
                             <div class="image-holder">
@@ -177,7 +179,6 @@
 </script>
 {{/unless}}
 {{/if}}
-{{#unless member}}
 <script>
     function join() {
         $.post(window.location.pathname+"/join", {next: window.location.pathname}, function(data, status) {
@@ -187,7 +188,6 @@
         });
     }
 </script>
-{{/unless}}
 {{#if editable}}
 <script>
     $('#name').prop('readonly', false);
