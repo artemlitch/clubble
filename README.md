@@ -11,3 +11,9 @@ cd ..
 bin/www
 ````
 
+## Getting Started (Docker)
+
+````sh
+docker-compose up
+````
+
