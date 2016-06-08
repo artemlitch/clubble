@@ -1,0 +1,12 @@
+web:
+  build: .
+  environment:
+    - PORT=80
+    - MONGODB_URI=mongodb://mongo/clubble
+  links:
+    - mongo
+  ports:
+    - "80:80"
+
+mongo:
+  image: mongo
