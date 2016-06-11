@@ -47,6 +47,9 @@
     box-shadow: none;
     resize: none;
     cursor: default;
+    text-fill-color:black;
+    -webkit-opacity:1;
+    -webkit-text-fill-color:black;
 }
 
 .input-group {
