@@ -17,6 +17,13 @@
             <label>Password</label>
             <input type="password" class="form-control" name="password">
         </div>
+        {{#if beta}}
+            <div class="form-group">
+                <label>Beta Key</label>
+                <input type="text" class="form-control" name="beta_key">
+            </div>
+        {{/if}}
+
 
         <button type="submit" class="btn btn-warning btn-lg">Signup</button>
     </form>

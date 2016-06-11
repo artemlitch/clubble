@@ -13,7 +13,7 @@ let passport = require('./lib/passport/passport');
 let session = require('express-session');
 let flash = require('connect-flash');
 let Ddos = require('ddos');
-let ddos = new Ddos({'silentStart' : true});
+let ddos = new Ddos({'limit':300, 'silentStart' : true});
 
 //setup the DB
 mongoose.connect(process.env.MONGODB_URI);

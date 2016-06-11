@@ -11,7 +11,7 @@
     <script src="/bower_components/typeahead.js/dist/typeahead.jquery.js"></script>
     <script src="/bower_components/autosize/dist/autosize.min.js"></script>
 
-    <title>Clubble</title>
+    <title>Clubble {{#if beta}}BETA{{/if}}</title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
         <div class="container topnav">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header pull-left">
-                <a class="navbar-brand topnav" href="/">Clubble</a>
+                <a class="navbar-brand topnav" href="/">Clubble{{#if beta}} Beta{{/if}}</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="navbar-header pull-right">
