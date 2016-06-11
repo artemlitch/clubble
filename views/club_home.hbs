@@ -36,7 +36,7 @@
                                     {{/unless}}
                                 {{else}}
                                     {{#if member}}
-                                        <button class="btn btn-primary" type="button" onclick="join()">Joined</button>
+                                        <button class="btn btn-primary" type="button" onclick="join()">joined</button>
                                     {{else}}
                                         <button class="btn btn-primary" type="button" onclick="join()">Join Club</button>
                                     {{/if}}
@@ -63,6 +63,9 @@
                 {{/if}}
                 {{#if admin}}
                     <a class="btn btn-primary" type="button" href="{{clubLink}}/members">Members</a>
+                {{/if}}
+                {{#if user.superUser}}
+                    <button class="btn btn-primary" type="button" onclick="deleteClub()">Delete Club</button>
                 {{/if}}
             </div>
         </div>
@@ -200,5 +203,18 @@
     $('#website').prop('disabled', false);
 </script>        
 {{/if}}
+{{#if user.superUser}}
 <script>
+    function deleteClub() {
+        $.ajax({
+            url: window.location.pathname,
+            type: 'DELETE',
+            success: function(data, status) {
+                if (typeof data.redirect == 'string') {
+                    window.location = data.redirect;
+                }
+            }
+        });
+    }
 </script>
+{{/if}}
