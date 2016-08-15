@@ -91,6 +91,8 @@ body {
 
 .club-well {
     color: black;
+    max-width: 300px;
+    max-height: 150px;
 }
 .club-well:hover {
     border-color: #009EC3;

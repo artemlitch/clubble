@@ -19,11 +19,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4 main-page-col">
-                <h4>New Clubs</h4>
-                <div class="well main-page-well">
+            <div class="col-sm-6 main-page-col">
+                <h4>Discover Clubs</h4>
+                <div class="container col-sm-12 well main-page-well">
                     {{#each new_clubs}}
-                        <div class="well club-well clickable">
+                        <div class="col-md-6 well club-well clickable">
                             <a href="/{{this.clubLink}}"></a>
                             <img class="img-responsive" src="{{this.bannerURL}}" alt="">
                             <h5>{{this.name}}</h5>
@@ -31,24 +31,12 @@
                     {{/each}}
                 </div>
             </div>
-            <div class="col-sm-4 main-page-col">
-                <h4>Popular Clubs</h4>
-                <div class="well main-page-well">
-                    {{#each popular_clubs}}
-                        <div class="well club-well clickable">
-                            <a href="/{{this.clubLink}}"></a>
-                            <img class="img-responsive" src="{{this.bannerURL}}" alt="">
-                            <h5>{{this.name}}</h5>
-                        </div>
-                    {{/each}}
-                </div>
-            </div>
-            <div class="col-sm-4 main-page-col">
+            <div class="col-sm-6 main-page-col">
                 <h4>My Clubs</h4>
                 <a class="create-btn btn btn-primary" type="button" href="create_club"><span>New Club</span></a>
-                <div class="well main-page-well">
+                <div class="container col-sm-12 well main-page-well">
                     {{#each my_clubs}}
-                        <div class="well club-well clickable">
+                        <div class="col-md-6 well club-well clickable">
                             <a href="/{{this.clubLink}}"></a>
                             <img class="img-responsive" src="{{this.bannerURL}}" alt="">
                             <h5>{{this.name}}</h5>
