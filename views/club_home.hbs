@@ -161,10 +161,10 @@
         textAreaAdjust(document.getElementById('description'));
 
         $.get(window.location.href.split('?')[0]+'/events/json', function(data) {
-            for (var fbEvent in data['fbEvents']) {
+            for (var event in data) {
                 var source   = $("#fbevent-template").html();
                 var template = Handlebars.compile(source);
-                var context = data['fbEvents'][fbEvent];
+                var context = data[event];
                 var html    = template(context);
                 $('#club-events').append(html); 
             }
