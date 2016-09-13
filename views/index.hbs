@@ -44,6 +44,26 @@
                     {{/each}}
                 </div>
             </div>
+            <div class="col-sm-6 main-page-col">
+                <h4>Recent Events</h4>
+                <div class="container col-sm-12 well main-page-well">
+                    {{#each recent_events}}
+                        <div class='well'>
+                            <div class='eventDateHolder'>
+                                <span class='eventMonth'>{{start_month}}</span>
+                                <br>
+                                <span class='eventDate'>{{start_date}}</span>
+                                <br>
+                                <span class='eventTime'>{{start_time}}</span>
+                            </div>
+                            <h4>{{name}}</h4>
+                            <p>{{description}}</p>
+                            <a href="https://{{facebook_link}}">Facebook Link </a>
+                            <a href="{{club.0.clubLink}}">Club Link </a>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
         </div>
     </div>
     <!-- /.container -->

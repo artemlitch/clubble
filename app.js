@@ -15,6 +15,7 @@ let flash = require('connect-flash');
 let Ddos = require('ddos');
 let ddos = new Ddos({'limit':300, 'silentStart' : true});
 
+let cron = require('./lib/tasks/fb_events');
 //setup the DB
 mongoose.connect(process.env.MONGODB_URI);
 let db = mongoose.connection;
