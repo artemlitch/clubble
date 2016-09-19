@@ -19,49 +19,50 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 main-page-col">
-                <h4>Discover Clubs</h4>
+            <div class="col-sm-8 main-page-col">
+                <h4>Discover</h4>
                 <div class="container col-sm-12 well main-page-well">
-                    {{#each new_clubs}}
-                        <div class="col-md-6 well club-well clickable">
-                            <a href="/{{this.clubLink}}"></a>
-                            <img class="img-responsive" src="{{this.bannerURL}}" alt="">
-                            <h5>{{this.name}}</h5>
-                        </div>
+                    {{#each discover_clubs_events}}
+                        {{#if this.clubLink}}
+                            <div class="well club-well clickable">
+                                <a href="/{{this.clubLink}}"></a>
+                                <img class="img-responsive" src="{{this.bannerURL}}" alt="">
+                                <h5>{{this.name}}</h5>
+                                <p class='well-description'>{{this.description}}</p>
+                            </div>
+                        {{else}}
+                            <div class='well event-well'>
+                                <div class='eventDateHolder'>
+                                    <span class='eventMonth'>{{start_month}}</span>
+                                    <br>
+                                    <span class='eventDate'>{{start_date}}</span>
+                                    <br>
+                                    <span class='eventTime'>{{start_time}}</span>
+                                </div>
+                                <h4>{{name}}</h4>
+                                <p class='well-description'>{{description}}</p>
+                                <a href="https://{{facebook_link}}">Facebook Link </a>
+                                <a href="{{club.0.clubLink}}">Club Link </a>
+                            </div>
+                        {{/if}} 
                     {{/each}}
                 </div>
             </div>
-            <div class="col-sm-6 main-page-col">
+            <div class="col-sm-4 main-page-col">
                 <h4>My Clubs</h4>
                 <a class="create-btn btn btn-primary" type="button" href="create_club"><span>New Club</span></a>
-                <div class="container col-sm-12 well main-page-well">
-                    {{#each my_clubs}}
-                        <div class="col-md-6 well club-well clickable">
-                            <a href="/{{this.clubLink}}"></a>
-                            <img class="img-responsive" src="{{this.bannerURL}}" alt="">
-                            <h5>{{this.name}}</h5>
-                        </div>
-                    {{/each}}
-                </div>
-            </div>
-            <div class="col-sm-6 main-page-col">
-                <h4>Recent Events</h4>
-                <div class="container col-sm-12 well main-page-well">
-                    {{#each recent_events}}
-                        <div class='well'>
-                            <div class='eventDateHolder'>
-                                <span class='eventMonth'>{{start_month}}</span>
-                                <br>
-                                <span class='eventDate'>{{start_date}}</span>
-                                <br>
-                                <span class='eventTime'>{{start_time}}</span>
+                <div class="container col-sm-12 well myclub-main-page-well">
+                    {{#if my_clubs}}
+                        {{#each my_clubs}}
+                            <div class="col-md-6 well myclub-well clickable">
+                                <a href="/{{this.clubLink}}"></a>
+                                <img class="img-responsive" src="{{this.bannerURL}}" alt="">
+                                <h5>{{this.name}}</h5>
                             </div>
-                            <h4>{{name}}</h4>
-                            <p>{{description}}</p>
-                            <a href="https://{{facebook_link}}">Facebook Link </a>
-                            <a href="{{club.0.clubLink}}">Club Link </a>
-                        </div>
-                    {{/each}}
+                        {{/each}}
+                    {{else}}
+                        <a class="btn btn-primary" type="button" href="login?next=/"><span>Login to see your clubs</span></a>
+                    {{/if}}
                 </div>
             </div>
         </div>

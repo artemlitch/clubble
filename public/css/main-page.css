@@ -70,8 +70,10 @@ body {
 
 .main-page-well {
     background: rgba(255, 255, 255, 0.17);
-    height: 73vh;
-    overflow-y: auto;
+    /*background: #e9ebee;*/
+}
+.myclub-main-page-well {
+    background: rgba(255, 255, 255, 0.17);
 }
 ::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.51);
@@ -91,10 +93,22 @@ body {
 
 .club-well {
     color: black;
-    max-width: 300px;
-    max-height: 150px;
+    overflow-hidden;
+    border: 1px solid #bfbfbf;
+    box-shadow: none;
 }
 .club-well:hover {
+    border: 1px solid #009EC3;
+}
+
+.myclub-well {
+    color: black;
+    width: 150px;
+    height: 131px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+.myclub-well:hover {
     border-color: #009EC3;
 }
 
@@ -165,6 +179,32 @@ div.clickable a {
     white-space: normal;
     font-size: x-small;
 }
+.well-description {
+    color: black;
+    overflow: hidden;
+    max-height: 79px;
+    text-overflow: ellipsis;
+    margin: auto;
+    max-width: 377px;
+}
+.event-well {
+    color: black;
+}
+
+.eventDateHolder {
+    width: 75px;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: thin;
+    text-align: center;
+    padding: 5px;
+    position: relative;
+    margin-bottom: -87px;
+    right: -91%;
+    top: -54px;
+    background: white;
+    border-color: red;
+}
 /* CSS FOR MOBILE */
 @media (max-width: 767px) { 
     .intro-message {
@@ -188,11 +228,15 @@ div.clickable a {
     .intro-divider {
         width: 100%;
     }
-    .main-page-well {
+    .myclub-main-page-well {
+        overflow-x: auto;
         display: flex;
-        height: 230px;
     }
     .club-well {
+        margin: 10px;
+        min-width: 172px;
+    }
+    .myclub-well {
         margin: 10px;
         min-width: 172px;
     }
